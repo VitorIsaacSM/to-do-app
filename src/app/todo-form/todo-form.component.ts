@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { toDo } from '../to-do/toDo';
 import { GetTodosService } from '../services/get-todos.service';
 
+
+let timer;
+
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
@@ -9,6 +12,7 @@ import { GetTodosService } from '../services/get-todos.service';
 })
 export class TodoFormComponent implements OnInit {
 
+  
   title: string = '';
   description: string = ''
   limit : Date;
@@ -27,11 +31,11 @@ export class TodoFormComponent implements OnInit {
       index: 0
     }
 
-    this.service.addTodo(todo).subscribe(todo => console.log(todo));
-
-    setTimeout(() => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      this.service.addTodo(todo).subscribe(todo => console.log(todo));
       window.location.reload();
-    }, 1000);
+    }, 500);
   }
 
 }

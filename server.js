@@ -56,6 +56,17 @@ app.post('/refresh', (req, res) => {
 
 });
 
+app.post('/erase', (req, res) => {
+    let myList = [];
+
+    console.log('printando minha lista');
+    console.log(myList);
+
+    refreshFile(myList);
+
+
+});
+
 console.log('server is running');
 
 function getDataFromFile (){

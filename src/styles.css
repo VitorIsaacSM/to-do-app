@@ -47,3 +47,21 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.myTextShadow{
+	text-shadow: 1px 1px 4px black;
+}
+
+.boxShadow {
+	box-shadow: 1px 1px 4px  darkgrey;
+}
+
+button:hover{
+	box-shadow: 1px 1px 3px 4px salmon, -1px -1px 3px 4px salmon;
+	transition: all .5s;
+}
+
+
+.custom-checkbox:hover .custom-control-input {
+	color: red;
+}

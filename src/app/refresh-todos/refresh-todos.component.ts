@@ -21,4 +21,13 @@ export class RefreshTodosComponent implements OnInit {
     this.update.emit('atualiza ae meu parcero');
   }
 
+  eraseAll(){
+    this.service.eraseAllTodos().subscribe();
+    
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+    
+  }
+
 }
