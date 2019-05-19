@@ -10,6 +10,7 @@ const routes: Routes = [
   { path : 'user/:username', component: PageComponent},
   { path : 'register', component : SignupComponent},
   { path : 'login', component : SigninComponent},
+  { path : '**', component : SigninComponent},
   { path : '', component : SigninComponent}
 
 ];
