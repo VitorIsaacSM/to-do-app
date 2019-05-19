@@ -70,3 +70,12 @@ button:hover{
 .disabled:hover{
     box-shadow: none;
 }
+
+.myBar{
+    width: 100%;
+    flex-grow: 1;
+    padding: 10px;
+    display: flex;
+    background-color: cornflowerblue;
+    color: white;
+}

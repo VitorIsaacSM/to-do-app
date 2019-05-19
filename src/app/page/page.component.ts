@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { toDo } from '../to-do/toDo';
 import { GetTodosService } from '../services/get-todos.service';
+import { LoginService } from '../services/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -10,12 +12,40 @@ import { GetTodosService } from '../services/get-todos.service';
 export class PageComponent implements OnInit {
 
   todos: toDo[] = [];
+  isFine = false;
+  route: string;
 
-  constructor(private service: GetTodosService) { }
+  constructor(
+    private service: GetTodosService, 
+    private loginService: LoginService, 
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+    
+    ) { }
 
   ngOnInit() {
-    this.service.getTodos().subscribe(todos => { this.todos = todos});
-    console.log(this.todos);
+
+    this.route = this.activatedRoute.snapshot.params.username;
+    this.loginService.checkToken().subscribe(
+      (user : any) => {
+        if(this.route != user.name){
+          this.router.navigate(['']);
+        }
+        else{
+          this.isFine = true;
+        }
+      } ,
+      err => {
+        console.log(err);
+        this.router.navigate(['']);
+      }
+    )
+
+    setTimeout(() => {
+      this.service.getTodos().subscribe(todos => { this.todos = todos});
+      console.log(this.todos);
+    }, 500);
+    
   }
 
   

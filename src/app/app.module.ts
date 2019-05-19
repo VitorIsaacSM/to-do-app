@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { RefreshTodosComponent } from './refresh-todos/refresh-todos.component';
 import { PageComponent } from './page/page.component';
+import { SignupComponent } from './login/signup/signup.component';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { PageComponent } from './page/page.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
