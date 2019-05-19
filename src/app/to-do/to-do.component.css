@@ -1,12 +1,10 @@
 .container {
-    display: flex;
-    flex-grow: 1;
+    display: block;
     width: 100%;
     background-color: whitesmoke;
     border-style: solid;
     margin-top: 10px;
     margin-bottom: 15px;
-    max-width: 1200px;
     border-width: 1px;
     padding: 10px;
     min-height: 100px;
@@ -14,39 +12,32 @@
 }
 
 .myCheckbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0;
-    margin-right: 25px;
-    flex-grow: 0;
-    transform: scale(1.5);
+    width: 15%;
+    display: block;
+    flex: 0 0 auto;
+    min-width: 70px;
+
 }
 
 .btn{
     background-color: cornflowerblue;
-    border-style: none;
-    font-size: 1.5rem;
+    font-size: 200%;
     text-align: center;
-    height: 3rem;
+    height: 100%;
+    width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    outline:none;
-    box-shadow: none;
+
 }
 
-.btn:hover{
-	box-shadow: 1px 1px 3px 2px salmon, -1px -1px 3px 2px salmon;
-}
+
 
 
 .clicked{
     background-color: slategrey;
     border-style: none;
-    font-size: 1.5rem;
     text-align: center;
    /*  text-decoration: line-through; */
-    height: 3rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 
@@ -54,53 +45,82 @@
     box-shadow:none;
 }
 
+h3{
+    text-align: justify;
+    word-break: break-all;
+}
 
 .media{
-    
-    padding: 10px;
-    max-width: 100%;
-    min-width: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 
 
 .media-body{
-    flex: 0;
-    max-width: 50rem;
-    word-wrap: break-word;
-}
-
-
-@media (max-width: 1200px) 
-{
-  .media-body 
-   {
-    max-width: 30rem;
-   }
-}
-
-@media (max-width: 800px) 
-{
-  .media-body 
-   {
-    max-width: 20rem;
-   }
-}
-
-
-@media (max-width: 600px) 
-{
-  .media-body 
-   {
-    max-width: 10rem;
-   }
+    padding-right: 10px;
+    width: 75%;
+    display: block;
+    flex: 1 0 auto; 
+    word-break: break-all;
 }
 
 .Done {
     transition: transform 1s;
     text-decoration: line-through;
+}
+
+@media (max-width: 600px){
+    
+    .media{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        word-break: break-all;
+    }
+
+    .myCheckbox{
+        width: 20%;
+        display: block;
+        flex: 0 0 auto;
+        min-width: 50px;
+    
+    }
+
+    .btn{
+        font-size: 150%;
+    }
+
+    .media-body{
+        
+        width: 66%;
+        display: block;
+        flex: 1 0 auto; 
+        word-break: break-all;
+    }
+
+}
+
+@media (max-width: 769px){
+    
+    .myCheckbox{
+        font-size: 0.8rem;
+        width: 20%;
+        display: block;
+        flex: 0 0 auto;
+        min-width: 70px;
+    
+    }
+
+    .media-body{
+        width: 73%;
+        display: block;
+        flex: 1 0 auto; 
+        word-break: break-all;
+    }
+
 }
 

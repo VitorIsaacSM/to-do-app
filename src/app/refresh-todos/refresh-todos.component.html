@@ -6,10 +6,10 @@
   </div>
   <div class="myButtons">
     <form class="box" (ngSubmit)="refresh()">
-      <button type="submit" class="btn btn-primary btn-block myTextShadow boxShadow normal">Atualizar</button>
+      <button [disabled]="!todosLength" [class.disabled]="!todosLength" type="submit" class="btn btn-primary btn-block myTextShadow boxShadow normal">Atualizar</button>
     </form>
     <form class="box" (ngSubmit)="eraseAll()">
-      <button type="submit" class="btn btn-primary btn-block myTextShadow boxShadow danger">Zerar Lista</button>
+      <button [disabled]="!todosLength" [class.disabled]="!todosLength" type="submit" class="btn btn-primary btn-block myTextShadow boxShadow danger">Zerar Lista</button>
     </form>
   </div>
   

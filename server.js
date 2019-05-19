@@ -37,32 +37,35 @@ app.post('/addTodo', (req, res) => {
     todo.index = newDB.length + 1;
     
     newDB.push(todo);
-    console.log(newDB);
+    
+    console.log('TAREFA ADICIONADA ' + todo.title);
 
     saveOnFile(newDB);
 
-    res.status(200);
+    res.status(200).json(newDB);
 });
 
 app.post('/refresh', (req, res) => {
     let myList = req.body;
 
+    console.log('LISTA ATUALIZADA');
     
-
     myList = myList.filter((todo) => {return todo.isDone == false});
 
-    refreshFile(myList)
+    refreshFile(myList);
 
+    res.json(myList);
 
 });
 
 app.post('/erase', (req, res) => {
     let myList = [];
 
-    console.log('printando minha lista');
-    console.log(myList);
+    console.log('LISTA COMPLETAMENTE DELETADA');
 
     refreshFile(myList);
+
+    res.json(myList);
 
 
 });
@@ -80,13 +83,9 @@ function saveOnFile(todos){
 
 function refreshFile(todos){
 
-    console.log(todos);
-
     for(let i = 0; i < todos.length; i += 1){
         todos[i].index = i + 1;
     }
 
     fs.writeFileSync('./data/data.json', JSON.stringify(todos));
-
-    console.log(todos);
 }

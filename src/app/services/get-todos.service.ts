@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { toDo } from '../to-do/toDo';
 
-let URL = 'https://angular-todo-list-app.herokuapp.com'
+let URL2 = 'http://localhost:3000';
+let URL = 'https://angular-todo-list-app.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class GetTodosService {
     return this.http.get<toDo[]>( URL + '/getTodos');
   }
 
-  addTodo(todo: toDo): Observable<toDo>{
-    return this.http.post<toDo>( URL + '/addTodo', todo);
+  addTodo(todo: toDo): Observable<toDo[]>{
+    return this.http.post<toDo[]>( URL + '/addTodo', todo);
   }
 
-  refreshTodos(todos: toDo[]){
+  refreshTodos(todos: toDo[]): Observable<toDo[]>{
     return this.http.post<toDo[]>( URL + '/refresh', todos);
   }
 

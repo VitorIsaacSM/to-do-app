@@ -33,7 +33,13 @@
     margin-bottom: 1rem;
 }
 
+.disabled:hover{
+    box-shadow: none;
+}
 
+small{
+    text-align: left;
+}
 
 .myBar{
     width: 100%;

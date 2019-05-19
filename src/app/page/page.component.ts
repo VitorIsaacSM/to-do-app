@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { toDo } from '../to-do/toDo';
 import { GetTodosService } from '../services/get-todos.service';
 
@@ -18,12 +18,27 @@ export class PageComponent implements OnInit {
     console.log(this.todos);
   }
 
+  
+  updateList(param : string){
+    if(param == 'update') {
+      console.log('refreshed');
+      this.service.refreshTodos(this.todos).subscribe( (todos) => {
+        this.todos = todos;
+      });
+    }
+    else {
+      this.service.eraseAllTodos().subscribe(() => {
+        this.todos = [];
+      });
+    }
+    window.scrollTo(0,0);
+  }
 
-  updateList(){
-    this.service.refreshTodos(this.todos).subscribe();
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+  addTodo(todo: toDo){
+    console.log(todo);
+    this.service.addTodo(todo).subscribe( (todos) => {
+      this.todos = todos;
+    })
   }
 
   checkBox(todo: toDo){

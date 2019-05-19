@@ -6,9 +6,7 @@
       <h5>Limite : {{todo.limit | date: 'dd/M/y'}}</h5>  
     </div>
     <div class="myCheckbox">
-        <div class="custom-control custom-checkbox">
-          <button class="btn btn-primary btn-block myTextShadow boxShadow" [class.clicked]="todo.isDone" (click)="log()">Done</button>
-      </div> 
+      <button class="btn btn-primary btn-block myTextShadow boxShadow" [class.clicked]="todo.isDone" (click)="log()">Done</button> 
     </div>
   </div>
 </div>
